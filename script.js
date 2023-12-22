@@ -16,12 +16,12 @@ function getComputerChoice() {
 
 function getPlayerChoice() {
     const userChoice = prompt("Rock Paper or Scissors?");
-    userChoice.toLowerCase();
-    console.log(userChoice);
-    if (userChoice != "rock" && userChoice != "paper" && userChoice != "scissors") {
+    const userChoiceLowerCase = userChoice.toLowerCase();
+    console.log(userChoiceLowerCase);
+    if (userChoiceLowerCase != "rock" && userChoiceLowerCase != "paper" && userChoiceLowerCase != "scissors") {
         alert("Only use Rock, Paper or Scissors")
     }
-    return userChoice.toLowerCase();
+    return userChoiceLowerCase;
 }
 
 function playRound (playerChoice, computerChoice) {
