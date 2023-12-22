@@ -43,4 +43,10 @@ function playRound (playerChoice, computerChoice) {
     }
 }
 
-playRound(getPlayerChoice(), getComputerChoice());
+function bestOfFive () {
+    for (let i = 0; i < 5; i++) {
+        playRound(getPlayerChoice(), getComputerChoice());
+    }
+}
+
+bestOfFive()
