@@ -2,6 +2,7 @@ console.log("Rock Paper Scissors Game");
 
 let playerScore = 0;
 let computerScore = 0;
+let draws = 0;
 
 function getComputerChoice() {
     let choiceRandomized = Math.floor(Math.random() * 3);
@@ -30,6 +31,7 @@ function getPlayerChoice() {
 function playRound (playerChoice, computerChoice) {
     if (playerChoice === computerChoice) {
         console.log("draw");
+        draws++;
         return "draw";
     } else if (playerChoice == "paper" && computerChoice == "rock") {
         console.log("player wins");
@@ -54,6 +56,7 @@ function bestOfFive () {
     for (let i = 0; i < 5; i++) {
         playRound(getPlayerChoice(), getComputerChoice());
     }
+    console.log("Draws: " + draws);
     console.log("Player Score: " + playerScore);
     console.log("Computer Score: " + computerScore);
     winner(playerScore, computerScore);
