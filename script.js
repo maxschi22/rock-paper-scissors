@@ -14,22 +14,26 @@ function getComputerChoice() {
 function getPlayerChoice() {
     const userChoice = prompt("Rock Paper or Scissors?");
     console.log(userChoice);
-    return userChoice;
+    return userChoice.toLowerCase();
 }
 
 function playRound (playerChoice, computerChoice) {
-    const playerChoice = getPlayerChoice().toLowerCase();
-    const computerChoice = getComputerChoice().toLowerCase();
-
     if (playerChoice == computerChoice) {
+        console.log("draw");
         return "draw";
     } else if (playerChoice == "paper" && computerChoice == "rock") {
+        console.log("player wins");
         return "player wins";
     } else if (playerChoice == "rock" && computerChoice == "scissors") {
+        console.log("player wins");
         return "player wins";
     } else if (playerChoice == "scissors" && computerChoice == "paper") {
+        console.log("player wins");
         return "player wins";
     } else {
+        console.log("computer wins");
         return "computer wins";
     }
 }
+
+playRound(getPlayerChoice(), getComputerChoice());
