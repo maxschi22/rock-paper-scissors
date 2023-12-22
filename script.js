@@ -12,14 +12,24 @@ function getComputerChoice() {
 }
 
 function getPlayerChoice() {
-    const usersChoice = prompt("Rock Paper or Scissors?");
-    console.log(usersChoice);
-    return usersChoice;
+    const userChoice = prompt("Rock Paper or Scissors?");
+    console.log(userChoice);
+    return userChoice;
 }
 
 function playRound (playerChoice, computerChoice) {
+    const playerChoice = getPlayerChoice().toLowerCase();
+    const computerChoice = getComputerChoice().toLowerCase();
 
+    if (playerChoice == computerChoice) {
+        return "draw";
+    } else if (playerChoice == "paper" && computerChoice == "rock") {
+        return "player wins";
+    } else if (playerChoice == "rock" && computerChoice == "scissors") {
+        return "player wins";
+    } else if (playerChoice == "scissors" && computerChoice == "paper") {
+        return "player wins";
+    } else {
+        return "computer wins";
+    }
 }
-
-getComputerChoice();
-getPlayerChoice();
