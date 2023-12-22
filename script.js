@@ -1,5 +1,8 @@
 console.log("Rock Paper Scissors Game");
 
+let playerScore = 0;
+let computerScore = 0;
+
 function getComputerChoice() {
     let choiceRandomized = Math.floor(Math.random() * 3);
     if (choiceRandomized == 1) {
@@ -30,15 +33,19 @@ function playRound (playerChoice, computerChoice) {
         return "draw";
     } else if (playerChoice == "paper" && computerChoice == "rock") {
         console.log("player wins");
+        playerScore++;
         return "player wins";
     } else if (playerChoice == "rock" && computerChoice == "scissors") {
         console.log("player wins");
+        playerScore++;
         return "player wins";
     } else if (playerChoice == "scissors" && computerChoice == "paper") {
         console.log("player wins");
+        playerScore++;
         return "player wins";
     } else {
         console.log("computer wins");
+        computerScore++;
         return "computer wins";
     }
 }
@@ -46,6 +53,22 @@ function playRound (playerChoice, computerChoice) {
 function bestOfFive () {
     for (let i = 0; i < 5; i++) {
         playRound(getPlayerChoice(), getComputerChoice());
+    }
+    console.log("Player Score: " + playerScore);
+    console.log("Computer Score: " + computerScore);
+    winner(playerScore, computerScore);
+}
+
+function winner(playerGameScore, computerGameScore) {
+    if (playerGameScore == computerGameScore) {
+        console.log("DRAW!");
+        return "draw round";
+    } else if (playerGameScore > computerGameScore) {
+        console.log("Player wins");
+        return "player wins round";
+    } else {
+        console.log("Computer wins");
+        return "computer wins round"
     }
 }
 
