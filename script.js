@@ -25,13 +25,13 @@ function playRound(playerChoice, computerChoice) {
   if (playerChoice === computerChoice) {
     adjustDraws();
     return "draw";
-  } else if (playerChoice == "paper" && computerChoice === "rock") {
+  } else if (playerChoice === "paper" && computerChoice === "rock") {
     adjustPlayerScore();
     return "player wins";
-  } else if (playerChoice == "rock" && computerChoice === "scissors") {
+  } else if (playerChoice === "rock" && computerChoice === "scissors") {
     adjustPlayerScore();
     return "player wins";
-  } else if (playerChoice == "scissors" && computerChoice === "paper") {
+  } else if (playerChoice === "scissors" && computerChoice === "paper") {
     adjustPlayerScore();
     return "player wins";
   } else {
@@ -71,20 +71,15 @@ function adjustDraws() {
   drawDisplay.innerHTML = "Draws: " + draws.toString();
 }
 
+const handlePlayerChoice = (playerChoice) => {
+  console.log(`Player Choice: ${playerChoice}`);
+  pChoiceDisplay.innerHTML = `Player Choice: ${playerChoice}`;
+  playRound(playerChoice, getComputerChoice());
+};
+
 const rockButton = document.getElementById("rock");
-rockButton.addEventListener("click", () => {
-  playRound("rock", getComputerChoice());
-  pChoiceDisplay.innerHTML = "Player Choice: " + "rock";
-});
-
 const paperButton = document.getElementById("paper");
-paperButton.addEventListener("click", () => {
-  playRound("paper", getComputerChoice());
-  pChoiceDisplay.innerHTML = "Player Choice: " + "paper";
-});
-
 const scissorsButton = document.getElementById("scissors");
-scissorsButton.addEventListener("click", () => {
-  playRound("scissors", getComputerChoice());
-  pChoiceDisplay.innerHTML = "Player Choice: " + "scissors";
-});
+rockButton.addEventListener("click", () => handlePlayerChoice("rock"));
+paperButton.addEventListener("click", () => handlePlayerChoice("paper"));
+scissorsButton.addEventListener("click", () => handlePlayerChoice("scissors"));
