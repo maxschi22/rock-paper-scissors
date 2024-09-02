@@ -43,6 +43,7 @@ function playRound(playerChoice, computerChoice) {
   }
 }
 
+//Für Zukünftige Entwicklung
 function winner(playerGameScore, computerGameScore) {
   if (playerGameScore == computerGameScore) {
     return "draw round";
