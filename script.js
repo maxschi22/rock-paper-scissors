@@ -76,7 +76,6 @@ function adjustDraws() {
 }
 
 const handlePlayerChoice = (playerChoice) => {
-  console.log(`Player Choice: ${playerChoice}`);
   pChoiceDisplay.innerHTML = `Player Choice: ${playerChoice}`;
   playRound(playerChoice, getComputerChoice());
 };
